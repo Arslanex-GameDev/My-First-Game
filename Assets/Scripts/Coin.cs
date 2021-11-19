@@ -1,0 +1,63 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Coin : MonoBehaviour
+{   
+    [SerializeField] private GameObject deathEffect;
+    [SerializeField] private GameObject tokenDeathEffect;
+
+    private float x = 0;
+    private float y = 0;
+    private float z = 1;
+
+    void Start()
+    {
+    }
+
+    void Update()
+    {
+        transform.Rotate(x,y,z,Space.Self);
+        if(gameObject.tag == "Token"){
+            x=1;
+            y=1;
+            transform.Rotate(x,y,z,Space.Self);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag == "Player"){
+        LevelManager levelManager = FindObjectOfType<LevelManager>();      
+        levelManager.score += 1;
+        print(levelManager.score); 
+        Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+       if(other.gameObject.tag == "Player"){
+           LevelManager levelManager = FindObjectOfType<LevelManager>();
+           if(gameObject.tag == "Token"){
+               levelManager.tokenScore += 1;
+               print(levelManager.tokenScore);
+               Destroy(gameObject);
+           }
+           else if(gameObject.tag == "jCoin"){
+               levelManager.score += 2;
+               print(levelManager.score);
+               Destroy(gameObject);
+           }
+       } 
+       else if(other.gameObject.name == "DeathZone"){
+           Destroy(gameObject);
+       }
+    }
+    private void OnDisable() {
+        if(gameObject.tag == "Coin" || gameObject.tag == "jCoin"){
+            Instantiate(deathEffect, transform.position, transform.rotation);
+        }
+        else if(gameObject.tag == "Token"){
+            Instantiate(tokenDeathEffect, transform.position, transform.rotation);
+        }
+    }
+}
