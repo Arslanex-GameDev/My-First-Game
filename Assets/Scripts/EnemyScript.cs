@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     [SerializeField] private GameObject deathEffect;
-
+    
     private Transform target;
-    private float speed = 3f;
+    private float speed = 3.5f;
     private Rigidbody body;
 
     void Start()

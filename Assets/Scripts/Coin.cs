@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Coin : MonoBehaviour
 {   
@@ -39,7 +40,6 @@ public class Coin : MonoBehaviour
            LevelManager levelManager = FindObjectOfType<LevelManager>();
            if(gameObject.tag == "Token"){
                levelManager.tokenScore += 1;
-               print(levelManager.tokenScore);
                Destroy(gameObject);
            }
            else if(gameObject.tag == "jCoin"){

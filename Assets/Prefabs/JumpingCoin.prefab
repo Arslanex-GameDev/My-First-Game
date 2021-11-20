@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 7747510221671553889, guid: 7cff8bc1801f6444a9c73ddf2e1f3d46, type: 3}
   tokenDeathEffect: {fileID: 7747510221671553889, guid: 6481cc4cb8556044db312450203f0278, type: 3}
+  tokenText: {fileID: 0}
 --- !u!54 &3514845742263511959
 Rigidbody:
   m_ObjectHideFlags: 0
