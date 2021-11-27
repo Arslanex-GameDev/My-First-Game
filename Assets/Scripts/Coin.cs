@@ -8,9 +8,9 @@ public class Coin : MonoBehaviour
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private GameObject tokenDeathEffect;
 
-    private float x = 0;
+    private float x = 1f;
     private float y = 0;
-    private float z = 1;
+    private float z = 1f;
 
     void Start()
     {
@@ -18,10 +18,11 @@ public class Coin : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(x,y,z,Space.Self);
+        transform.Rotate(x,y,z);
         if(gameObject.tag == "Token"){
-            x=1;
-            y=1;
+            x=2;
+            y=2;
+            z=2;
             transform.Rotate(x,y,z,Space.Self);
         }
     }
