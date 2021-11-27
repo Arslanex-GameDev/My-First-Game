@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WallScript : MonoBehaviour
-{
+
+{    
+    [SerializeField] private Material newMaterial;
+
+    private Material currentMaterial;
     private float counter;
     private string nameOf;
-    private Color color1;
     private float jumpForce = 5f;
 
     void Start()
     {
-        color1 = GetComponent<MeshRenderer>().material.color;
+        currentMaterial = GetComponent<MeshRenderer>().material;
     }
 
     void Update()
     {
         if(Time.time-counter > 3f){
-            GetComponent<MeshRenderer>().material.color = color1;
+            GetComponent<MeshRenderer>().material = currentMaterial;
         }
     }
 
     private void OnCollisionEnter(Collision other) {
         nameOf = other.gameObject.tag;
         if(nameOf == "Player"){
-            GetComponent<MeshRenderer>().material.color = Color.black;
+            GetComponent<MeshRenderer>().material = newMaterial;
             counter = Time.timeSinceLevelLoad;
         }
         if(nameOf == "Enemy"){

@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 5657730322639758095, guid: ab7c30bf0c7ba4a4dbfa7571dfb48a87, type: 3}
-  wall: {fileID: 6136550032523971594}
 --- !u!96 &104737081
 TrailRenderer:
   serializedVersion: 2
